@@ -1,4 +1,4 @@
-module vencordinstaller
+module simcordinstaller
 
 go 1.20
 

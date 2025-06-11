@@ -1,7 +1,6 @@
 /*
- * SPDX-License-Identifier: GPL-3.0
- * Vencord Installer, a cross platform gui/cli app for installing Vencord
- * Copyright (c) 2023 Vendicated and Vencord contributors
+ * Simcord Installer, a cross platform gui/cli app for installing Simcord
+ * Copyright (c) 2023 Vendicated and Simcord contributors
  */
 
 package main
@@ -118,7 +117,7 @@ func FixOwnership(_ string) error {
 	return nil
 }
 
-// https://github.com/Vencord/Installer/issues/9
+// https://github.com/Simcord/Installer/issues/9
 
 func CheckScuffedInstall() bool {
 	username := os.Getenv("USERNAME")

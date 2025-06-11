@@ -1,7 +1,6 @@
 /*
- * SPDX-License-Identifier: GPL-3.0
- * Vencord Installer, a cross platform gui/cli app for installing Vencord
- * Copyright (c) 2023 Vendicated and Vencord contributors
+ * Simcord Installer, a cross platform gui/cli app for installing Simcord
+ * Copyright (c) 2023 Vendicated and Simcord contributors
  */
 
 package main
@@ -16,25 +15,25 @@ import (
 )
 
 var BaseDir string
-var VencordDirectory string
+var SimcordDirectory string
 
 func init() {
-	if dir := os.Getenv("VENCORD_USER_DATA_DIR"); dir != "" {
-		Log.Debug("Using VENCORD_USER_DATA_DIR")
+	if dir := os.Getenv("simcord_USER_DATA_DIR"); dir != "" {
+		Log.Debug("Using simcord_USER_DATA_DIR")
 		BaseDir = dir
 	} else if dir = os.Getenv("DISCORD_USER_DATA_DIR"); dir != "" {
-		Log.Debug("Using DISCORD_USER_DATA_DIR/../VencordData")
-		BaseDir = path.Join(dir, "..", "VencordData")
+		Log.Debug("Using DISCORD_USER_DATA_DIR/../SimcordData")
+		BaseDir = path.Join(dir, "..", "SimcordData")
 	} else {
 		Log.Debug("Using UserConfig")
-		BaseDir = appdir.New("Vencord").UserConfig()
+		BaseDir = appdir.New("Simcord").UserConfig()
 	}
 
-	if dir := os.Getenv("VENCORD_DIRECTORY"); dir != "" {
-		Log.Debug("Using VENCORD_DIRECTORY")
-		VencordDirectory = dir
+	if dir := os.Getenv("simcord_DIRECTORY"); dir != "" {
+		Log.Debug("Using simcord_DIRECTORY")
+		SimcordDirectory = dir
 	} else {
-		VencordDirectory = path.Join(BaseDir, "vencord.asar")
+		SimcordDirectory = path.Join(BaseDir, "simcord.asar")
 	}
 }
 
@@ -87,7 +86,7 @@ func patchAppAsar(dir string, isSystemElectron bool) (err error) {
 	}
 
 	Log.Debug("Writing custom app.asar to", appAsar)
-	if err := WriteAppAsar(appAsar, VencordDirectory); err != nil {
+	if err := WriteAppAsar(appAsar, SimcordDirectory); err != nil {
 		return err
 	}
 
@@ -137,14 +136,14 @@ func (di *DiscordInstall) patch() error {
 			}
 		}
 
-		Log.Debug("This is a flatpak. Trying to grant the Flatpak access to", VencordDirectory+"...")
+		Log.Debug("This is a flatpak. Trying to grant the Flatpak access to", SimcordDirectory+"...")
 
 		isSystemFlatpak := strings.HasPrefix(di.path, "/var")
 		var args []string
 		if !isSystemFlatpak {
 			args = append(args, "--user")
 		}
-		args = append(args, "override", name, "--filesystem="+VencordDirectory)
+		args = append(args, "override", name, "--filesystem="+SimcordDirectory)
 		fullCmd := "flatpak " + strings.Join(args, " ")
 
 		Log.Debug("Running", fullCmd)
@@ -165,7 +164,7 @@ func (di *DiscordInstall) patch() error {
 			err = cmd.Run()
 		}
 		if err != nil {
-			return errors.New("Failed to grant Discord Flatpak access to " + VencordDirectory + ": " + err.Error())
+			return errors.New("Failed to grant Discord Flatpak access to " + SimcordDirectory + ": " + err.Error())
 		}
 	}
 	return nil
