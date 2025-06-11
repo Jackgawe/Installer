@@ -10,7 +10,7 @@ import (
 	"simcordinstaller/buildinfo"
 )
 
-const ReleaseUrl = "https://api.github.com/repos/Jackgawe/Simcord/releases/latest"
+const ReleaseUrl = "https://api.github.com/repos/Jackgawe/SimcordInstaller/releases/latest"
 const ReleaseUrlFallback = "https://simcord.dev/releases/simcord"
 const InstallerReleaseUrl = "https://api.github.com/repos/Simcord/Installer/releases/latest"
 const InstallerReleaseUrlFallback = "https://simcord.dev/releases/installer"
