@@ -1,6 +1,6 @@
 # Simcord Installer
 
-The Simcord Installer allows you to install [Simcord, the cutest Discord Desktop client mod](https://github.com/Jackgawe/Simcord)
+The Simcord Installer allows you to install [Simcord, the cutest Discord Desktop client mod](https://github.com/Jackgawe/SimcordInstaller).
 
 ![image](https://user-images.githubusercontent.com/45497981/226734476-5fb42420-844d-4e27-ae06-4799118e086e.png)
 
@@ -63,4 +63,8 @@ go build --tags cli
 ```
 
 You might want to pass some flags to this command to get a better build.
-See [the GitHub workflow](https://github.com/Vendicated/SimcordInstaller/blob/main/.github/workflows/release.yml) for what flags I pass or if you want more precise instructions
+See [the GitHub workflow](https://github.com/Jackgawe/SimcordInstaller/blob/main/.github/workflows/release.yml) for what flags I pass or if you want more precise instructions
+
+## Release v1.0.0
+
+The latest release is now available! Check out the [releases page](https://github.com/Jackgawe/SimcordInstaller/releases) to download the latest version.
