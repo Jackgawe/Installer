@@ -68,3 +68,5 @@ See [the GitHub workflow](https://github.com/Jackgawe/SimcordInstaller/blob/main
 ## Release v1.0.0
 
 The latest release is now available! Check out the [releases page](https://github.com/Jackgawe/SimcordInstaller/releases) to download the latest version.
+
+**Note:** The EXE version is currently buggy, but the CLI version works great. We recommend using the CLI version for the best experience.
